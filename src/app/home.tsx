@@ -6,11 +6,15 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { router } from "expo-router";
+import HandPay from "@/svg/HandPay";
 
 export default function HomeScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white" edges={["top"]}>
-      <Text className="text-6xl text-center">$10:90</Text>
+      <View className="-mt-16">
+        <HandPay />
+      </View>
+      <Text className="text-6xl mt-6 text-center">$10:90</Text>
       <View className="h-[60%] mt-auto flex-row flex-wrap gap-6 bg-[#7B56FE] p-[45px]  rounded-tl-3xl rounded-tr-3xl">
         <TouchableOpacity className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl">
           <FontAwesome6 name="sack-dollar" size={38} color="black" />
@@ -25,7 +29,12 @@ export default function HomeScreen() {
           <FontAwesome name="send" size={38} color="black" />
           <Text className="text-xl">Send</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl">
+        <TouchableOpacity
+          className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl"
+          onPress={() => {
+            router.push("/receive");
+          }}
+        >
           <Ionicons name="qr-code-outline" size={38} color="black" />
           <Text className="text-xl">Receive</Text>
         </TouchableOpacity>

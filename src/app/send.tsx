@@ -1,11 +1,13 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import React, { PropsWithChildren, useState } from "react";
+import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import React, { PropsWithChildren, useRef, useState } from "react";
 import { router, Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import LottieView from "lottie-react-native";
 
 export default function SendScreen() {
   const [value, setValue] = useState("0.00");
+  const animation = useRef<LottieView>(null);
 
   const handleNumberPress = (number: string) => {
     if (value === "0.00") {
@@ -60,6 +62,13 @@ export default function SendScreen() {
         }}
       />
       <View className="flex-1 bg-white">
+        <LottieView
+          source={require("../../assets/lotte/party.json")}
+          loop={false}
+          autoPlay={false}
+          ref={animation}
+          style={{ position: "absolute", inset: 0 }}
+        />
         <View className="gap-6 items-center mt-[40px]">
           <Text className="text-lg">Amount</Text>
           <Text className="text-6xl">{value} USD</Text>
@@ -99,9 +108,16 @@ export default function SendScreen() {
             </NumberButton>
             <NumberButton onPress={handleBackspace}>⌫</NumberButton>
           </View>
-          <View className="bg-[##BEFF6B] mt-auto pt-5 -mx-4">
+          <Pressable
+            className="bg-[##BEFF6B] mt-auto pt-5 -mx-4"
+            onPress={() => {
+              animation.current?.reset();
+              animation.current?.play();
+              setValue("0.00");
+            }}
+          >
             <Text className="text-center text-xl font-semibold">Confirm</Text>
-          </View>
+          </Pressable>
         </View>
       </View>
     </SafeAreaView>
