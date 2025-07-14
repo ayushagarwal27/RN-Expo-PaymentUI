@@ -1,7 +1,8 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React, { PropsWithChildren, useState } from "react";
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function SendScreen() {
   const [value, setValue] = useState("0.00");
@@ -44,7 +45,19 @@ export default function SendScreen() {
   return (
     <SafeAreaView className="flex-1 bg-[##BEFF6B]" edges={["bottom"]}>
       <Stack.Screen
-        options={{ headerBackButtonDisplayMode: "minimal", title: "Send" }}
+        options={{
+          headerBackButtonDisplayMode: "minimal",
+          animation: "slide_from_bottom",
+          title: "Send",
+          headerLeft: () => (
+            <AntDesign
+              name="arrowleft"
+              size={24}
+              color="black"
+              onPress={() => router.back()}
+            />
+          ),
+        }}
       />
       <View className="flex-1 bg-white">
         <View className="gap-6 items-center mt-[40px]">
