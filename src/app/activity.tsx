@@ -5,6 +5,7 @@ import { router, Stack } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Feather from "@expo/vector-icons/Feather";
 import { activityData } from "@/constants/data";
+import { formatSolanaAddress } from "@/utils";
 
 export default function ActivityScreen() {
   return (
@@ -55,7 +56,7 @@ export default function ActivityScreen() {
                 </Text>
                 <Text className="text-gray-300 text-lg">
                   {item.type === "received" ? "From: " : "To: "}
-                  {item.address.substring(0, 6)}
+                  {formatSolanaAddress(item.address)}
                 </Text>
               </View>
               {item.type === "received" ? (
