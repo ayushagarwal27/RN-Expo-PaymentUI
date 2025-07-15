@@ -5,6 +5,7 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Feather from "@expo/vector-icons/Feather";
 import { router } from "expo-router";
 import HandPay from "@/svg/HandPay";
 
@@ -16,10 +17,6 @@ export default function HomeScreen() {
       </View>
       <Text className="text-6xl mt-6 text-center">$10:90</Text>
       <View className="h-[60%] mt-auto flex-row flex-wrap gap-6 bg-[#7B56FE] p-[45px]  rounded-tl-3xl rounded-tr-3xl">
-        <TouchableOpacity className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl">
-          <FontAwesome6 name="sack-dollar" size={38} color="black" />
-          <Text className="text-xl">Funds</Text>
-        </TouchableOpacity>
         <TouchableOpacity
           className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl"
           onPress={() => {
@@ -32,13 +29,28 @@ export default function HomeScreen() {
         <TouchableOpacity
           className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl"
           onPress={() => {
+            router.push("/activity");
+          }}
+        >
+          <Feather name="activity" size={38} color="black" />
+          <Text className="text-xl">Activity</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl"
+          onPress={() => {
             router.push("/receive");
           }}
         >
           <Ionicons name="qr-code-outline" size={38} color="black" />
           <Text className="text-xl">Receive</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl">
+        <TouchableOpacity
+          className="bg-white items-center gap-2 p-10 w-[45%] rounded-2xl"
+          onPress={() => {
+            router.push("/balance");
+          }}
+        >
           <FontAwesome5 name="wallet" size={38} color="black" />
           <Text className="text-xl">Balance</Text>
         </TouchableOpacity>
