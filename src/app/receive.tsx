@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Stack } from "expo-router";
-import { createHeaderConfig } from "@/utils/headerConfig";
+import { createHeaderConfig } from "@/headerUtils/headerConfig";
 
 export default function ReceiveScreen() {
   return (

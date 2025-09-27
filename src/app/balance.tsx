@@ -4,7 +4,7 @@ import { Stack } from "expo-router";
 import { tokensData } from "@/constants/data";
 import BalanceRow from "@/components/BalanceRow";
 import BalanceHeader from "@/components/BalanceHeader";
-import { createHeaderConfig, headerStyles } from "@/utils/headerConfig";
+import { createHeaderConfig, headerStyles } from "@/headerUtils/headerConfig";
 
 export default function BalanceScreen() {
   return (

@@ -3,7 +3,7 @@ import React from "react";
 import { Stack } from "expo-router";
 import { activityData } from "@/constants/data";
 import ActivityRow from "@/components/ActivityRow";
-import { createHeaderConfig } from "@/utils/headerConfig";
+import { createHeaderConfig } from "@/headerUtils/headerConfig";
 
 export default function ActivityScreen() {
   return (

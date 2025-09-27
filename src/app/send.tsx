@@ -4,7 +4,7 @@ import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LottieView from "lottie-react-native";
 import NumericalKeypad from "@/components/NumericalKeypad";
-import { createHeaderConfig, headerStyles } from "@/utils/headerConfig";
+import { createHeaderConfig, headerStyles } from "@/headerUtils/headerConfig";
 
 export default function SendScreen() {
   const [value, setValue] = useState("0.00");
