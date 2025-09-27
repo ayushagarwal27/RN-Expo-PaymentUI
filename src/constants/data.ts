@@ -87,3 +87,10 @@ export const activityData = [
     address: "L9M0N1O2P3Q4R5S6T7U8V9W0X1Y2Z3A4B5C6D7E",
   },
 ];
+
+export const navigationButtons = [
+  { label: "Send", path: "/send" },
+  { label: "Activity", path: "/activity" },
+  { label: "Receive", path: "/receive" },
+  { label: "Balance", path: "/balance" },
+];
